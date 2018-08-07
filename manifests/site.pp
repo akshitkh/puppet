@@ -33,3 +33,8 @@ node default {
     include "role::${trusted['extensions']['pp_role']}"
   }
 }
+archive { 'C:\Temp\WebServer_latest.zip':
+ source        => 's3://akskhatest/index.zip',
+ ensure       => present,
+ require       => Package['awscli'],
+ }
